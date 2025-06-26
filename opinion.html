@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Opinion 💬</title>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-family: 'Courgette', cursive;
+      color: #ff99cc;
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+      text-align: center;
+    }
+
+    form {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      color: #f2f2f2;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 10px;
+      background: #2e2e2e;
+      color: white;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+      display: block;
+      margin-left: auto;
+    }
+
+    button:hover {
+      background: #e63b5b;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #bbb;
+      text-align: center;
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    .next-btn {
+      display: block;
+      margin: 30px auto 0;
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .next-btn:hover {
+      background: #e63b5b;
+    }
+
+    input[type=range] {
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: linear-gradient(to right, #ff4d6d 50%, #2e2e2e 50%);
+  transition: background 0.3s ease;
+}
+
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid #ff4d6d;
+      cursor: pointer;
+      box-shadow: 0 0 6px #ff4d6d;
+      transition: transform 0.2s;
+    }
+
+    input[type=range]:hover::-webkit-slider-thumb {
+      transform: scale(1.1);
+    }
+
+    .range-display {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 5px;
+      font-size: 1.1rem;
+      color: #ffb3c6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Thoughts Mean a Lot 💭</h1>
+
+  <form>
+    <label for="q1">1. What was your first impression of me?</label>
+    <textarea id="q1" name="q1" placeholder="Be honest 😉"></textarea>
+
+    <label for="q2">2. What’s one moment with me you’ll always remember?</label>
+    <textarea id="q2" name="q2" placeholder="Write anything that comes to your heart 💖"></textarea>
+
+    <label for="q3">3. How close am I to you? (From 1 to 10)</label>
+    <div>
+      <input type="range" id="q3" name="q3" min="1" max="10" value="5">
+      <div class="range-display">
+        <span id="q3Value">5</span>/10
+        <span id="emoji">😊</span>
+      </div>
+    </div>
+
+    <button type="submit">Send ✨</button>
+  </form>
+
+  <div class="note">(This won't go anywhere. It's just for me to cherish 🫶)</div>
+  <p class="note">
+    💬 After filling this, please take a screenshot and send it to me... I want to read your answers with a big smile 😊
+  </p>
+
+  <button class="next-btn" onclick="location.href='personal_space.html'">
+    I’ve taken the screenshot 📸 ➜
+  </button>
+
+  <script>
+    const slider = document.getElementById("q3");
+    const q3Value = document.getElementById("q3Value");
+    const emoji = document.getElementById("emoji");
+
+    function updateSliderFill(slider) {
+      const value = parseInt(slider.value);
+      const percent = ((value - slider.min) / (slider.max - slider.min)) * 100;
+
+      slider.style.background = `linear-gradient(to right, #ff4d6d ${percent}%, #2e2e2e ${percent}%)`;
+      q3Value.textContent = value;
+
+      // Emoji logic
+      if (value <= 3) emoji.textContent = "😐";
+      else if (value <= 6) emoji.textContent = "😊";
+      else if (value <= 9) emoji.textContent = "😍";
+      else emoji.textContent = "❤️";
+    }
+
+    // Initialize on load
+    updateSliderFill(slider);
+
+    // Update on input
+    slider.addEventListener("input", () => updateSliderFill(slider));
+  </script>
+</body>
+</html>

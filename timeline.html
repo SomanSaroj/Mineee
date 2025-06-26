@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Timeline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #0d0d0d, #1a1a1a);
+      color: #fff;
+      padding: 40px 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+    h1 {
+      font-family: 'Courgette', cursive;
+      font-size: 2.5rem;
+      color: #ffccd5;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    p.note {
+      font-size: 1rem;
+      color: #ccc;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.05);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255,105,135,0.2);
+    }
+    h2 {
+      font-size: 1.3rem;
+      color: #ff99cc;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #f2f2f2;
+    }
+    .spotify-player {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0 50px 0;
+    }
+    iframe {
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      height: 80px;
+    }
+    .next-btn {
+      display: block;
+      margin: 40px auto 0;
+      background: #ff4d6d;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .next-btn:hover {
+      background: #e63b5b;
+    }
+    .bg-anim {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: radial-gradient(#ff4d6d33 1px, transparent 1px);
+      background-size: 20px 20px;
+      animation: flow 10s linear infinite;
+    }
+    @keyframes flow {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+    .scroll-note {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    .scroll-note p {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scrollText 12s linear infinite;
+      font-size: 1rem;
+      color: #ff99cc;
+      font-style: italic;
+    }
+
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .open-image-btn {
+      padding: 10px 20px;
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    .open-image-btn:hover {
+      background-color: #e63b5b;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-anim"></div>
+  
+  <h1>Our Journey Together</h1>
+  <div class="scroll-note">
+    <p>Please click the play button before reading the text for a little feel 🎵</p>
+  </div>
+
+  <div class="spotify-player">
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/0iLgVMCi8KCTF9e6QbKvSl?utm_source=generator"
+      width="100%" height="80" frameBorder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"></iframe>
+  </div>
+
+  <div class="timeline">
+    <!-- First Card -->
+    <div class="card">
+      <h2>The Day We First Talked 🌸</h2>
+      <p>Jan 17th, 2024</p>
+      <p>I'll never forget how everything felt so different that evening, curious, and a little bit magical. Like something new had begun...</p>
+    </div>
+
+    <!-- Second Card with Image Button -->
+    <div class="card">
+      <h2>An Unexpected Random Moment 📸</h2>
+      <p>There's one picture that is clicked before our meet... Beautiful moment.</p>
+      <button class="open-image-btn" onclick="openImage()">OPEN IMAGE</button>
+    </div>
+
+    <!-- Third Card -->
+    <div class="card">
+      <h2>Many Late Night Conversations 💖</h2>
+      <p>While days often start strong and fade, mine end on a high note – thanks to our conversation, which often extends well into the late midnight.</p>
+    </div>
+  </div>
+
+  <button class="next-btn" onclick="location.href='confession.html'">Go to something special ➤</button>
+
+  <script>
+    function openImage() {
+      window.open("your-image.jpg", "_blank");
+    }
+  </script>
+</body>
+</html>

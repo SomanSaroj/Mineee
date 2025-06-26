@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to top right, #0d0d0d, #000000);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 2.5rem;
+      color: #ffe6f0;
+      padding: 10px 20px;
+      border: 3px solid black;
+      border-radius: 10px;
+      background-color: rgba(0,0,0,0.5);
+      text-shadow: 0 0 5px #ff4d6d, 0 0 10px #ff4d6d;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+      text-align: center;
+      z-index: 2;
+    }
+    .note {
+      color: #fff;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      font-style: italic;
+      animation: fadeIn 4s ease-in-out;
+      z-index: 2;
+    }
+    .button-group {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+      animation: fadeIn 4s ease-in-out;
+      z-index: 2;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: #ff4d6d;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: scale(1.1);
+      background: #ff334f;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .sparkles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(255,77,109,0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      animation: sparkleFlow 10s linear infinite;
+      z-index: 1;
+    }
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .stars::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      box-shadow:
+        10vw 10vh white,
+        20vw 30vh white,
+        40vw 60vh white,
+        25vw 20vh white,
+        70vw 10vh white,
+        80vw 50vh white,
+        90vw 80vh white,
+        60vw 70vh white,
+        30vw 90vh white,
+        50vw 40vh white,
+        15vw 75vh white;
+      animation: twinkle 4s infinite ease-in-out;
+    }
+    @keyframes sparkleFlow {
+      from {background-position: 0 0;}
+      to {background-position: 1000px 1000px;}
+    }
+    @keyframes twinkle {
+      0%, 100% {opacity: 1;}
+      50% {opacity: 0.3;}
+    }
+    audio {
+      display: block;
+      margin-top: 40px;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="sparkles"></div>
+
+  <h1>WELCOMING THE MOST BEAUTIFUL AND SWEETEST PERSON TO THIS WORLD OF OURS ( MINEEE )</h1>
+  <div class="note">P.S: Both buttons do the same ✨</div>
+
+  <div class="button-group">
+    <button onclick="goToTimeline()">Wanna revisit our memories?</button>
+    <button onclick="goToTimeline()">Click any button</button>
+  </div>
+
+  <!-- AUDIO USING GOOGLE DRIVE DIRECT LINK -->
+  <audio id="bgm" autoplay loop>
+    <source src="https://docs.google.com/uc?export=download&id=1wPiyKeorZLTMOayv6WczIdVSixVqbldS" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const audio = document.getElementById("bgm");
+    audio.volume = 0.8;
+
+    function goToTimeline() {
+      window.location.href = "timeline.html";
+    }
+  </script>
+</body>
+</html>

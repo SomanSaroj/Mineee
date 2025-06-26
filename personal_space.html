@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Personal Space</title>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .timer {
+      font-size: 1.8rem;
+      color: #ff99cc;
+      font-family: 'Courgette', cursive;
+      margin-bottom: 40px;
+      animation: fadeInPulse 2s ease-in-out infinite alternate;
+      text-align: center;
+    }
+
+    @keyframes fadeInPulse {
+      0% { opacity: 0.7; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.05); }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .box {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 20px;
+      min-width: 300px;
+      box-shadow: 0 0 20px rgba(255, 77, 109, 0.1);
+      backdrop-filter: blur(4px);
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 77, 109, 0.2);
+    }
+
+    h2 {
+      color: #ffb3c6;
+      font-family: 'Courgette', cursive;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    ul li::before {
+      content: "❤️ ";
+    }
+
+    .special-section {
+      margin-top: 40px;
+      max-width: 800px;
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 77, 109, 0.1);
+    }
+
+    .special-section h2 {
+      color: #ffd6e0;
+    }
+
+    .bg-sparkle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      z-index: -1;
+      background: radial-gradient(circle, rgba(255,77,109,0.1) 1px, transparent 1px);
+      background-size: 25px 25px;
+      animation: sparkleMove 15s linear infinite;
+    }
+
+    @keyframes sparkleMove {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+    .look-btn {
+  margin-left: 15px;
+  padding: 6px 14px;
+  background-color: #030303;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.look-btn:hover {
+  background-color: #e63b5b;
+  transform: scale(1.05);
+}
+.next-btn {
+      display: block;
+      margin: 40px auto 0;
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .next-btn:hover {
+      background: #e63b5b;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="bg-sparkle"></div>
+
+  <div class="timer" id="liveTimer">It's been ... ⏳</div>
+
+  <div class="container">
+    <div class="box">
+      <h2>Things I Like in Her 💗</h2>
+      <ul>
+        <li>Spending atleast 5 minutes a day to reply to me</li>
+        <li>Once start cheste Sodhi bale cheptav telsa</li>
+        <li>Nemali kanna andham </li>
+        <li>That one violet  langa voni lo picture❤️❤️ 🙌🏻</li>
+        <li>Pani unte ventane cheptundhi msg cheyaku ani </li>
+        <li>Her late night replies 😊</li>
+        <li>Okka mukka lo cheppalante 50kg bangaram 😇</li>
+        <!-- Add more here -->
+      </ul>
+    </div>
+    <div class="box">
+      <h2>Things I Didn't Like 😅</h2>
+      <ul>
+        <li>Ignoring me sometimes 🥲</li>
+        <li>Fast ga reply lu ichestav </li>
+        <li>Nyt Cheppakunda direct ga padkundipothav 😤</li>
+        <li>Tindi nidra lu pattinchukovu🧐</li>
+        <li>Underestimating yourself</li>
+        <!-- Add more here -->
+      </ul>
+    </div>
+  </div>
+
+  <div class="special-section">
+    <h2>Things Only We Relate To 🤫</h2>
+    <p>Mana dialogues ey...Malli Vindhaam 💞</p>
+    <ul>
+  <li>
+    That fake Snr-Jnr which lasted few days
+    <button class="look-btn " onclick="openImage('images/snr-jnr.jpg')">Wanna Check🩵</button>
+  </li>
+  <li>
+    Kaani senior ane pilupe bagundhi le...Pilchukunta appudu appudu😌
+    <button class="look-btn " onclick="openImage('images/snr-pilupu.jpg')">Wanna Check🩵</button>
+  </li>
+  <li>
+    Oorlo unna vi anni cheptar ga 😒
+    <button class="look-btn " onclick="openImage('images/fake-bday.jpg')">Wanna Check🩵</button>
+  </li>
+  <li>
+    Siggestundhi madam😅
+    <button class="look-btn " onclick="openImage('images/siggu.jpg')">Wanna Check🩵</button>
+  </li>
+  <li>
+    Nak topic lo discussion avvadam nachadhu🫣
+    <button class="look-btn " onclick="openImage('images/secret.jpg')">Wanna Check🩵</button>
+  </li>
+</ul>
+
+  </div>
+   <button class="next-btn" onclick="location.href='final.html'">Take me to the final surprise ➜</button>
+
+  <script>
+    function updateTimer() {
+      const startDate = new Date("January 17, 2025 20:14:00").getTime();
+      const now = new Date().getTime();
+      let diff = now - startDate;
+
+      const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+      diff %= (1000 * 60 * 60 * 24 * 30);
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      diff %= (1000 * 60 * 60 * 24);
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      diff %= (1000 * 60 * 60);
+
+      const minutes = Math.floor(diff / (1000 * 60));
+      diff %= (1000 * 60);
+
+      const seconds = Math.floor(diff / 1000);
+
+      document.getElementById("liveTimer").innerText =
+        `It's been ${months} months, ${days} days, ${hours} hrs, ${minutes} min, ${seconds} sec ⏳`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+  <script>
+  function openImage(url) {
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
